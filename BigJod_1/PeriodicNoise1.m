@@ -15,7 +15,7 @@ spectrum1 = uint8(mat2gray(spectrum)*255);%标准化使范围在[0.255]
 subplot(1,4,1); imshow(spectrum1);
 %%%%%%频谱转换%%%%%%
 
-%%%%%%构建带阻陷波滤波器%%%%%%
+%%%%%%构建理想带阻陷波滤波器%%%%%%
 [M,N] = size(image);%图像大小
 AV = 0; AH = 1;%水平轴和垂直轴设置
 SV = 30;SH = 30;%水平轴和垂直轴长度设置
@@ -29,7 +29,7 @@ H(UC-WL:UC+WL,VC+SH:N) = AH;%右边X轴
 H(1:UC-SV,VC-WL:VC+WL) = AV;%上边Y轴
 H(UC+SV:M,VC-WL:VC+WL) = AV;%下边Y轴
 subplot(1,4,3);imshow(H);
-%%%%%%构建带阻陷波滤波器%%%%%%
+%%%%%%构建理想带阻陷波滤波器%%%%%%
 
 %%%%%%滤波%%%%%%
 result = ifftshift(H.*F1);
